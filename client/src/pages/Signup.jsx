@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import '../Styles/SignupStyle.css'
+import { Link } from 'react-router-dom';
 
 
 const Signup = () => {
@@ -29,14 +30,14 @@ const Signup = () => {
           <Form.Group className="mb-3" controlId="formBasicfirstname">
             <Form.Label>First Name</Form.Label>
             <Form.Control type="name" className='input rounded-3' {...register('firstName', { required: true, minLength: {value: 3, message: "lirst name is too short"}, maxLength: {value: 20, message: "first name is too long"} })} placeholder="First name" />
-            {errors.firstName && <div className=' text-muted text-sm-start'>{errors.firstName.message}</div>}
+            {errors.firstName && <Form.Text className="text-muted">{errors.firstName.message}</Form.Text>}
           </Form.Group>
 
 
           <Form.Group className="mb-3" controlId="formBasiclasrname">
             <Form.Label>Last Name</Form.Label>
             <Form.Control type="name" className='input rounded-3' {...register('lastName', { required: true, minLength: {value: 3, message: "last name is too short"}, maxLength: {value: 20, message: "last name is too long"} })} placeholder="Enter Last name" />
-            {errors.lastName && <div className=' text-muted text-sm-start'>{errors.lastName.message}</div>}
+            {errors.lastName && <Form.Text className="text-muted">{errors.lastName.message}</Form.Text>}
           </Form.Group>
 
 
@@ -54,13 +55,16 @@ const Signup = () => {
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" className='input rounded-3' {...register('Password', { required: true })} placeholder="Password" />
+            <Form.Control type="password" className='input rounded-3' {...register('password', { required: true, minLength: {value: 8, message: "password is too short minimum length is 8"}})} placeholder="Password" />
+            {errors.password && <Form.Text className="text-muted">
+            {errors.password.message}
+            </Form.Text>}
           </Form.Group>
 
           <Button variant="primary" className="btn btn-secondary rounded-1" type="submit">
             Submit
           </Button>
-
+          <div className="mt-2">Already have an account? <Link className='signup-link' to="/login">Login</Link></div>
         </Form>
       </div>
 

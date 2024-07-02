@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import '../Styles/LoginStyle.css'
+import { Link } from 'react-router-dom';
+
 
 const Login = () => {
   // it is used to prevent errors and make form handling easy
@@ -34,7 +36,8 @@ const Login = () => {
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" className='input rounded-3' {...register('Password', { required: true })} placeholder="Password" />
+            <Form.Control type="password" className='input rounded-3' {...register('password', { required: true})} placeholder="Password" />
+          
           </Form.Group>
 
           <Button variant="primary" className="btn btn-secondary rounded-1" type="submit">
@@ -42,6 +45,7 @@ const Login = () => {
           </Button>
 
         </Form>
+        <div className="mt-2">Don't have an account? don't worry <Link className='signup-link' to="/signup">Signup</Link></div>
       </div>
 
     </div>
