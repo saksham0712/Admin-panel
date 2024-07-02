@@ -15,7 +15,7 @@ module.exports.signup = async (req, res, next) => {
       password: hashedPassword,
     });
     delete user.password;
-    return res.json({ status: true, user });
+    return res.json({ msg:"Account created successfully", status: true, user });
   } catch (error) {
     return next(error);
   }
