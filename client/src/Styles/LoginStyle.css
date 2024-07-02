@@ -1,0 +1,11 @@
+h1 {
+    font-size: 3rem;
+    color: #9f917e;
+  }
+
+  .login-left{
+    background: url('../assets/Login/left2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40vw;
+  }

@@ -1,0 +1,11 @@
+h1 {
+    font-size: 3rem;
+    color: #9f917e;
+  }
+
+  .signup-left{
+    background: url('../assets/Signup/left.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
