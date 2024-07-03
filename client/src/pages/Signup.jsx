@@ -36,18 +36,18 @@ setmsg(msg)
       setmsg(data.msg)
       alert(`${data.msg}, now you will be redirected to Login page `)
       localStorage.setItem('user', JSON.stringify(data.user))
-      // navigate('/login')
+      navigate('/login')
     }
   }
 
     return (
       <div className='d-flex vw-100 vh-100'>
-        <div className='d-flex justify-content-center align-content-center w-50 signup-left'>
+        <div className='d-flex d-none d-lg-block justify-content-center align-content-center w-50 signup-left'>
           <div className='text-center'>
           </div>
 
         </div>
-        <div className='form-container w-50 p-4 h-100'>
+        <div className='form-container w-auto p-4 h-100'>
 
           <Form onSubmit={handleSubmit(onSubmit)}>
             <h1>Sign Up</h1>

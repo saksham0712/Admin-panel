@@ -29,28 +29,30 @@ const onSubmit = async (formData) => {
   const {data} = await axios.post(login, formData)
   console.log(data)
   if (data.status === false) { setmsg(data.msg) }
-  if (data.status === true){
-    setmsg(data.msg);
-    // alert(`${msg}, Now you will directed to Login page`)
-    localStorage.setItem('user', JSON.stringify(data.user))
-    navigate('/user')
-  }
-  if (data.status === true && data.role === "admin"){
+  else if (data.status === true && data.role === "admin"){
     setmsg(data.msg);
     // alert(`${msg}, Now you will directed to Login page`)
     localStorage.setItem('user', JSON.stringify(data.user))
     navigate('/sakshamverma712')
   }
-
+  else if (data.status === true ){
+    setmsg(data.msg); 
+    // alert(`${msg}, Now you will directed to Login page`)
+    localStorage.setItem('user', JSON.stringify(data.user))
+    navigate('/user')
+  }
+  else {
+    return alert("you are not autherised")
+  }
 }
   return (
     <div className='d-flex vw-100 vh-100'>
-      <div className='d-flex justify-content-center align-content-center w-50 login-left'>
+      <div className='d-flex d-none d-lg-block justify-content-center align-content-center w-50 login-left'>
         <div className='text-center'>
         </div>
 
       </div>
-      <div className='form-container w-50 p-5'>
+      <div className='form-container w-auto p-5'>
 
         <Form onSubmit={handleSubmit(onSubmit)}>
           <h1>Login</h1>

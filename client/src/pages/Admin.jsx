@@ -1,11 +1,15 @@
 import React from 'react'
+import Table from '../components/Table'
+import Navbar from '../components/Navbar'
 
 const Admin = () => {
   return (
     <div>
-      Admin
+        <Navbar/>
+      <Table />
     </div>
   )
+
 }
 
 export default Admin
