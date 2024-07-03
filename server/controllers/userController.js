@@ -1,5 +1,7 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+
 
 module.exports.signup = async (req, res, next) => {
   try {
@@ -7,6 +9,8 @@ module.exports.signup = async (req, res, next) => {
     const emailCheck = await User.findOne({ email });
     if (emailCheck)
       return res.json({ msg: "User already exists", status: false });
+
+
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({
       firstName,
@@ -15,7 +19,13 @@ module.exports.signup = async (req, res, next) => {
       password: hashedPassword,
     });
     delete user.password;
-    return res.json({ msg:"Account created successfully", status: true, user });
+
+    // genrate web token
+    const token = jwt.sign(
+        { email: user.email },process.env.secret,{expiresIn: "1d",}
+    )
+    return res.json({ msg:"Account created successfully", status: true, user, token });
+    // res.cookie("uid",token)
   } catch (error) {
     return next(error);
   }
@@ -33,7 +43,12 @@ module.exports.login = async (req, res, next) => {
     return res.json({ msg: "Incorrect username or password", status: false });
     delete user.password;
 
-    return res.json({status: true, user})
+     // Generate JWT token
+     const token = jwt.sign(
+        { email: user.email },process.env.secret,{expiresIn: "1d",}
+      ); 
+      
+      res.json({status: true, user, token})
 } 
   catch (error) {
     return next(error);

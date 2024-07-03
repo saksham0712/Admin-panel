@@ -30,7 +30,7 @@ setmsg(msg)
   const onSubmit = async (formData) => {
     // console.log(formData)
     const {data} = await axios.post(signup, formData)
-    console.log(data.msg)
+    console.log(data)
     if (data.status === false){setmsg(data.msg)}
     if (data.status === true){
       setmsg(data.msg)
