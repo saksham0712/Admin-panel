@@ -14,8 +14,7 @@ const Table = () => {
         const user = await axios.post(getUsers)
         const response = user.data
         setData(response.user)
-        console.log(data)
-        // console.log(response.data.users.email, 'email')
+        // console.log(data)
       } catch (error) {
         console.log(error)
       }
@@ -31,11 +30,11 @@ const Table = () => {
         <div className="container">
           <div className="table-wrapper">
             <div className="table-title">
-              <div className="row">
-                <div className="col-sm-6">
+              <div className="row justify-content-between">
+                <div className="col-sm-9">
                   <h3>Manage <b>Users</b></h3>
                 </div>
-                <div className="col-sm-6">
+                <div className="col-sm-3">
                   <a href="#" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#adduserModal">
                     <i className="material-icons">&#xE147;</i> <span>Add New Employee</span>
                   </a>

@@ -6,7 +6,7 @@ const Admin = () => {
   return (
     <>
         <Navbar/>
-    <div className=' w-100 vh-100 overflow-y-scroll overflow-x-auto'>
+    <div className=' w-100 vh-100 overflow-y-scroll overflow-x-auto mt-2'>
       <Table />
     </div>
     </>
