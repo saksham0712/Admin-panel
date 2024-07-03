@@ -1,6 +1,6 @@
 # Admin Panel
 
-This project is an Admin Panel developed using the MERN stack (MongoDB, Express.js, React.js, Node.js). The admin panel includes user registration, login, logout functionalities, and CRUD operations on users.
+This project is an Admin Panel developed using the MERN stack (MongoDB, Express.js, React.js, Node.js). The admin panel includes user registration, login, logout functionalities, and CRUD operations on users and fully responsive.
 
 ## Features
 
@@ -56,7 +56,7 @@ Make sure you have Node.js and npm installed on your machine.
 
 5. **Project Status:**
 
-   This project is currently a work in progress. and responsive is also pending Contributions and suggestions are welcome!
+   This project is currently a work in progress. Contributions and suggestions are welcome!
    
 6. **Acknowledgements**
    - [MongoDB](https://www.mongodb.com/)
