@@ -31,7 +31,7 @@ const onSubmit = async (formData) => {
   if (data.status === false) { setmsg(data.msg) }
   if (data.status === true){
     setmsg(data.msg);
-    alert(`${msg}, Now you will directed to Login page`)
+    // alert(`${msg}, Now you will directed to Login page`)
     localStorage.setItem('user', JSON.stringify(data.user))
     // navigate('/login')
   }
@@ -61,7 +61,9 @@ const onSubmit = async (formData) => {
             <Form.Control type="password" className='input rounded-3' {...register('password', { required: true })} placeholder="Password" />
           </Form.Group>
           {msg && <div className=' alert alert-danger ' role='alert' >{msg}</div>}
-
+          
+          
+        
           <Button variant="primary" className="btn btn-secondary rounded-1" type="submit">
             Submit
           </Button>
