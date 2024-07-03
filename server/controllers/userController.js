@@ -28,13 +28,6 @@ module.exports.signup = async (req, res, next) => {
     // Remove the password field from the user object before sending it to the client
     delete user.password;
 
-    // Generate a JWT token for the new user
-    const token = jwt.sign(
-      { user: JSON.stringify(user) }, // Payload containing the user details
-      process.env.secret, // Secret key for signing the token
-      { expiresIn: "1d" } // Token expiration time
-    );
-
     // Send a success response with the user details and the token
     return res.json({ msg: "Account created successfully", status: true, user, token });
   } catch (error) {
@@ -62,16 +55,18 @@ module.exports.login = async (req, res, next) => {
     delete user.password;
 
     // Generate a JWT token for the authenticated user
-    const token = jwt.sign(
-      { user: JSON.stringify(user) }, // Payload containing the user details
-      process.env.secret, // Secret key for signing the token
-      { expiresIn: "1d" } // Token expiration time
-    );
-    if(user.role === 'admin' ) // this will match the user from db if it is admin or not
-        res.json({ msg: "Welcome, Admin", status: true, user, token, role:'admin'});
-    
-    // Send a success response with the user details and the token
-    res.json({ msg: "Welcome, you are logged in", status: true, user, token });
+
+       const token = jwt.sign(
+          { userId: user._id },process.env.secret,{ expiresIn: "80123" } 
+        );
+        res.cookie('token', token, { httpOnly: true })
+        
+        
+        if(user.role === 'admin' ) // this will match the user from db if it is admin or not
+        res.json({ msg: "Welcome, Admin", status: true, user, role:'admin'});
+        
+        // Send a success response with the user details and the token
+        res.json({ msg: "Welcome, you are logged in", status: true, user, });
   } catch (error) {
     // Handle any errors that occur
     return next(error);

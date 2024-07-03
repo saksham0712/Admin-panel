@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const userRoutes = require('./routes/userRoutes')
+const protectedRoute = require('./routes/protectedRoute')
 
 const app = express();
 require('dotenv').config()
@@ -12,6 +13,7 @@ app.use(express.json());
 
 
 app.use('/api/auth', userRoutes)
+app.use('/protected', protectedRoute)
 
 app.get('/', (req,res)=>{
     res.send('Hello guys')

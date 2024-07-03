@@ -33,7 +33,13 @@ const onSubmit = async (formData) => {
     setmsg(data.msg);
     // alert(`${msg}, Now you will directed to Login page`)
     localStorage.setItem('user', JSON.stringify(data.user))
-    // navigate('/login')
+    navigate('/user')
+  }
+  if (data.status === true && data.role === "admin"){
+    setmsg(data.msg);
+    // alert(`${msg}, Now you will directed to Login page`)
+    localStorage.setItem('user', JSON.stringify(data.user))
+    navigate('/sakshamverma712')
   }
 
 }
