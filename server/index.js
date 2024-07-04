@@ -34,7 +34,7 @@ const server = app.listen(process.env.PORT || 3001, () => {
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {
-    alert("MongoDB Connected");
+    console.log("MongoDB Connected");
   })
   .catch((err) => {
     console.log(err.message);
