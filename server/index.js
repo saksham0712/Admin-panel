@@ -8,6 +8,14 @@ const app = express();
 require("dotenv").config();
 
 app.use(cors());
+
+// using an middleware
+app.use(cors({
+    origin: 'https://admin-panel-public.vercel.app/', // frontend deployment link
+    methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
+    credentials: true,
+}))
+
 app.use(express.json());
 
 app.use("/api/auth", userRoutes);
