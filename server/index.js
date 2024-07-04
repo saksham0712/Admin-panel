@@ -7,18 +7,27 @@ const protectedRoute = require("./routes/protectedRoute");
 const app = express();
 require("dotenv").config();
 
-app.use(cors());
+const allowedOrigins = ['http://localhost:5173', "https://admin-panel-public.vercel.app/"];
 
-// using an middleware
-app.use(cors(
-    {
-        origin: ["https://admin-panel-public.vercel.app/","http://localhost:5173/"],
-        methods: ["POST", "GET"],
-        credentials: true
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, origin);
+    } else {
+      callback(new Error('Not allowed by CORS'));
     }
-));
+  },
+  credentials: true, // Enable sending of cookies and other credentials
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+};
 
+app.use(cors(corsOptions));
 app.use(express.json());
+
+// Enable preflight for all routes
+app.options('*', cors(corsOptions));
+
 
 app.use("/api/auth", userRoutes);
 app.use("/protected", protectedRoute);
