@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 const protectedRoute = require("./routes/protectedRoute");
+const { getUsers } = require("./controllers/userController");
 
 const app = express();
 require("dotenv").config();
@@ -30,6 +31,7 @@ app.options('*', cors(corsOptions));
 
 
 app.use("/api/auth", userRoutes);
+app.use("/get", getUsers);
 app.use("/protected", protectedRoute);
 
 app.get("/", (req, res) => {
