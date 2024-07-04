@@ -1,4 +1,4 @@
-export const host = "https://admin-panel-server-xi.vercel.app";
+export const host = "https://admin-panel-server-seven.vercel.app/";
 export const login = `${host}/api/auth/login`;
 export const signup = `${host}/api/auth/signup`;
 export const getUsers = `${host}/api/auth/get`;
