@@ -5,6 +5,7 @@ import DeleteUser from '../components/DeleteUser'
 import axios from 'axios'
 import { deleteUsers, updateUsers } from '../utils/APIRoutes'
 import UpdateUser from '../components/UpdateUser'
+import CreateUser from '../components/CreateUser'
 
 const Admin = () => {
     // for delete a user
@@ -63,12 +64,16 @@ const Admin = () => {
 
     }
 
+    // for create new user it is inside Create User component
+
+
 
 
     return (
         <>
             <Navbar />
             <div className=' w-100 vh-100 overflow-y-scroll overflow-x-auto mt-2'>
+                <CreateUser />
                 <Table Deleteuser={deleteUser} UpdateUser={updateUser} />
                 <DeleteUser handleDelete={handleDelete} />
                 <UpdateUser handleChange={handleChange} value={value} handleSubmit={handleSubmit} />

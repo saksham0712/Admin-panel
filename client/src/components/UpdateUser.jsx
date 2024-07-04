@@ -10,7 +10,7 @@ const UpdateUser = ({ handleSubmit, value, handleChange }) => {
                     <div className="modal-content">
                         <form onSubmit={handleSubmit}>
                             <div className="modal-header">
-                                <h4 className="modal-title">Update User</h4>
+                                <h4 className="modal-title">Add new user</h4>
                             </div>
                             <div className="modal-body">
                                 <div className="form-group">

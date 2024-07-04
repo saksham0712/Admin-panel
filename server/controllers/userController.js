@@ -40,6 +40,44 @@ module.exports.signup = async (req, res, next) => {
   }
 };
 
+// to create an user
+module.exports.create = async (req, res, next) => {
+  try {
+    // Extract user details from the request body
+    const { firstName, lastName, email, password, role } = req.body;
+
+    // Check if the email already exists in the database
+    const emailCheck = await User.findOne({ email });
+    if (emailCheck)
+      return res.json({ msg: "User already exists", status: false });
+
+    // Hash the password before saving it to the database
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create a new user in the database
+    const user = await User.create({
+      firstName,
+      lastName,
+      email,
+      password: hashedPassword,
+      role,
+    });
+
+    // Remove the password field from the user object before sending it to the client
+    delete user.password;
+
+    // Send a success response with the user details and the token
+    return res.json({
+      msg: "user created successfully",
+      status: true,
+      user,
+    });
+  } catch (error) {
+    // Handle any errors that occur
+    return next(error);
+  }
+};
+
 // Login function to authenticate a user
 module.exports.login = async (req, res, next) => {
   try {
