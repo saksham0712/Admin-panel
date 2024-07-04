@@ -22,7 +22,7 @@ const Table = ({Deleteuser, UpdateUser}) => {
     }
     FeatchData()
 
-  }, [])
+  })
 
 
 
@@ -33,13 +33,13 @@ const Table = ({Deleteuser, UpdateUser}) => {
         <div className="container">
           <div className="table-wrapper">
             <div className="table-title">
-              <div className="row justify-content-between">
-                <div className="col-sm-9">
+              <div className="row justify-content-between m-3">
+                <div className="col-sm-9 w-auto">
                   <h3>Manage <b>Users</b></h3>
                 </div>
-                <div className="col-sm-3">
+                <div className="col-sm-3 w-auto">
                   <a href="#" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#adduserModal">
-                    <i className="material-icons">&#xE147;</i> <span>Add New Employee</span>
+                    <i className="material-icons">&#xE147;</i> <span>Add</span>
                   </a>
                 </div>
               </div>
@@ -51,7 +51,7 @@ const Table = ({Deleteuser, UpdateUser}) => {
                   <th>Firstname</th>
                   <th>Lastname</th>
                   <th>Email</th>
-                  <th></th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
