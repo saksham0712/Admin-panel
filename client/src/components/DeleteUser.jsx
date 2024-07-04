@@ -2,12 +2,12 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function DeleteUser({handleDelete}) {
+function DeleteUser({ handleDelete }) {
 
 
     return (
         <>
-<div id="deleteEmployeeModal" className="modal fade">
+            <div id="deleteEmployeeModal" className="modal fade">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <form>

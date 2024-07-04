@@ -5,7 +5,7 @@ import { getUsers } from '../utils/APIRoutes';
 
 
 
-const Table = ({Deleteuser, UpdateUser}) => {
+const Table = ({ Deleteuser, UpdateUser }) => {
   const [data, setData] = useState([])
 
 
@@ -51,6 +51,7 @@ const Table = ({Deleteuser, UpdateUser}) => {
                   <th>Firstname</th>
                   <th>Lastname</th>
                   <th>Email</th>
+                  <th>Role</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -61,6 +62,7 @@ const Table = ({Deleteuser, UpdateUser}) => {
                       <td>{item.firstName}</td>
                       <td>{item.lastName}</td>
                       <td>{item.email}</td>
+                      <td>{item.role}</td>
                       <td>
                         <a href="#" className="edit cursor-pointer" data-bs-toggle="modal" data-bs-target="#editEmployeeModal" onClick={() => UpdateUser(item._id)}>
                           <i className="material-icons" data-bs-toggle="tooltip" title="Edit">&#xE254;</i>

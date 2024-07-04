@@ -72,7 +72,7 @@ const Admin = () => {
     return (
         <>
             <Navbar />
-            <div className=' w-100 vh-100 overflow-y-scroll overflow-x-auto mt-2'>
+            <div className=' w-100 vh-100 overflow-y-auto overflow-x-auto mt-2'>
                 <CreateUser />
                 <Table Deleteuser={deleteUser} UpdateUser={updateUser} />
                 <DeleteUser handleDelete={handleDelete} />

@@ -4,15 +4,15 @@ import { useNavigate } from "react-router-dom";
 
 
 function Navbar() {
- const [first, setFirst] = useState('')
- 
+  const [first, setFirst] = useState('')
+
 
   const navigate = useNavigate();
-  const handleClick = async()=> {
-  localStorage.clear();
-  navigate("/login");
+  const handleClick = async () => {
+    localStorage.clear();
+    navigate("/login");
   }
- 
+
   useEffect(() => {
     const username = async () => {
       const name = localStorage.getItem('user');
@@ -28,15 +28,15 @@ function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">Admin panel</a>
-          
+
           <div className="d-flex gap-2 align-items-baseline">
             <p className="text-center">Hello, {first}</p>
-          <button className="btn btn-outline-success" onClick={handleClick}>Logout</button>
-            </div>
-          
+            <button className="btn btn-outline-success" onClick={handleClick}>Logout</button>
+          </div>
+
         </div>
-      
-    </nav >
+
+      </nav >
     </>
   );
 }

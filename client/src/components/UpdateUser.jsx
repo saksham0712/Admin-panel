@@ -1,11 +1,11 @@
 import React from 'react'
 
 const UpdateUser = ({ handleSubmit, value, handleChange }) => {
-  return (
-    <div>
-      
+    return (
+        <div>
 
-      <div id="editEmployeeModal" className="modal fade">
+
+            <div id="editEmployeeModal" className="modal fade">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <form onSubmit={handleSubmit}>
@@ -19,14 +19,14 @@ const UpdateUser = ({ handleSubmit, value, handleChange }) => {
                                 </div>
                                 <div className="form-group">
                                     <label>Last Name</label>
-                                    <input type="text" value={value.lastName}  name='lastName' onChange={handleChange} className="form-control" />
+                                    <input type="text" value={value.lastName} name='lastName' onChange={handleChange} className="form-control" />
                                 </div>
                                 <div className="form-group">
                                     <label>Email</label>
-                                    <input type="text" value={value.email}  name='email' onChange={handleChange} className="form-control" />
+                                    <input type="text" value={value.email} name='email' onChange={handleChange} className="form-control" />
 
                                 </div>
-    
+
                             </div>
                             <div className="modal-footer">
                                 <input type="button" className="btn btn-default" data-bs-dismiss="modal" value="Cancel" />
@@ -39,8 +39,8 @@ const UpdateUser = ({ handleSubmit, value, handleChange }) => {
 
 
 
-    </div>
-  )
+        </div>
+    )
 }
 
 export default UpdateUser
