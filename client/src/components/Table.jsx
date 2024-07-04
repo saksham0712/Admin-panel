@@ -4,7 +4,8 @@ import { getUsers } from '../utils/APIRoutes';
 
 
 
-const Table = () => {
+
+const Table = ({Deleteuser, UpdateUser}) => {
   const [data, setData] = useState([])
 
 
@@ -22,6 +23,8 @@ const Table = () => {
     FeatchData()
 
   }, [])
+
+
 
   return (
     <>
@@ -59,13 +62,12 @@ const Table = () => {
                       <td>{item.lastName}</td>
                       <td>{item.email}</td>
                       <td>
-                        <a href="#" className="edit cursor-pointer" data-bs-toggle="modal" data-bs-target="#editEmployeeModal" onClick={() => UpdatedUser(item._id)}>
+                        <a href="#" className="edit cursor-pointer" data-bs-toggle="modal" data-bs-target="#editEmployeeModal" onClick={() => UpdateUser(item._id)}>
                           <i className="material-icons" data-bs-toggle="tooltip" title="Edit">&#xE254;</i>
                         </a>
-                        <a href="#" className="delete cursor-pointer" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal" onClick={() => Deletuser(item._id)}>
+                        <a href="#" className="delete cursor-pointer" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal" onClick={() => Deleteuser(item._id)}>
                           <i className="material-icons" data-bs-toggle="tooltip" title="delete" >&#xE872;</i>
                         </a>
-                        {/* <a className="delete" data-bas-toggle='modal' data-bs-target='#deleteEmployeeModal'><i className="material-icons" data-bs-toggle="tooltip" title="Delete">&#xE872;</i></a> */}
                       </td>
                     </tr>
                   )
