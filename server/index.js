@@ -10,11 +10,13 @@ require("dotenv").config();
 app.use(cors());
 
 // using an middleware
-app.use(cors({
-    origin: 'https://admin-panel-public.vercel.app', // frontend deployment link
-    methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
-    credentials: true,
-}))
+app.use(cors(
+    {
+        origin: ["https://admin-panel-public.vercel.app/","http://localhost:5173/"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 
 app.use(express.json());
 

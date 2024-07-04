@@ -29,7 +29,9 @@ const Signup = () => {
 
   const onSubmit = async (formData) => {
     // console.log(formData)
-    const { data } = await axios.post(signup, formData)
+    const { data } = await axios.post(signup, formData, {
+      withCredentials: true,
+    })
     console.log(data)
     if (data.status === false) { setmsg(data.msg) }
     if (data.status === true) {
@@ -41,8 +43,8 @@ const Signup = () => {
   }
 
   return (
-    <div className='d-flex vw-100 vh-100'>
-      <div className='d-flex d-none d-lg-block justify-content-center align-content-center w-50 signup-left'>
+    <div className='row vw-100 vh-100'>
+      <div className='d-flex d-none d-lg-block justify-content-center align-content-center col-sm-7  signup-left'>
         <div className='text-center'>
         </div>
 
