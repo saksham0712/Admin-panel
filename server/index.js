@@ -11,7 +11,7 @@ app.use(cors());
 
 // using an middleware
 app.use(cors({
-    origin: 'https://admin-panel-public.vercel.app/', // frontend deployment link
+    origin: 'https://admin-panel-public.vercel.app', // frontend deployment link
     methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
     credentials: true,
 }))
@@ -32,7 +32,7 @@ const server = app.listen(process.env.PORT || 3001, () => {
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {
-    console.log("MongoDB Connected");
+    alert("MongoDB Connected");
   })
   .catch((err) => {
     console.log(err.message);
