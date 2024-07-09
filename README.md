@@ -19,7 +19,7 @@ Make sure you have Node.js and npm installed on your machine.
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/saksham0712/Admin-panel
+   https://github.com/saksham0712/Admin-panel.git  
    cd admin-panel
    ```
 2. **Install dependencies:**
