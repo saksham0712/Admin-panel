@@ -52,7 +52,7 @@ Make sure you have Node.js and npm installed on your machine.
    
 4. **Registering as an Admin**   
 
-   To register yourself as an admin, enter the code 'admin' in the admin code field during the registration process.
+   To register yourself as an admin, enter the code 'Admin' in the admin code field during the registration process.
 
 5. **Project Status:**
 
