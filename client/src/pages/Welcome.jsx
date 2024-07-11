@@ -11,7 +11,6 @@ const Home = () => {
                     <h2>
                         Welcome
                     </h2>
-<h4>Abhinav Tiwari</h4>
                     <p>Admin Panel by <span className='text-secondary'>Saksham Verma</span></p>
                     <div className="buttons d-flex gap-1">
                         <Button variant='secondary'><Link to='/login' className='text-decoration-none text-white'>Login</Link></Button>
